@@ -1,0 +1,56 @@
+#  AppEngine descriptor.  For documentation check 
+#  http://code.google.com/appengine/docs/java/configyaml/appconfig_yaml.html 
+
+application: koliseo-oauth2-client-example
+
+version: 1-0
+
+static_files:
+- include: /css/*.css
+  expiration: 1d
+- include: /img/*
+  expiration: 1d
+- include: /favicon.ico
+  expiration: 1d  
+- include: /robots.txt
+
+system_properties:
+  java.util.logging.config.file: WEB-INF/classes/logging.properties
+#  === Uncomment and replace with your own configuration: ===
+#  auth_hostname: https://www.koliseo.com
+#  auth_url: https://www.koliseo.com/login/auth
+#  auth_accesstoken_url: https://www.koliseo.com/login/auth/token
+#  auth_client_id: 19
+#  auth_client_secret: a5ef448ae1be7a8514428ad53123b879
+
+sessions_enabled: false
+
+precompilation_enabled: true
+
+inbound_services:
+- warmup
+
+threadsafe: true
+
+listeners:
+- com.acme.config.GuiceConfigListener
+
+handlers:
+- url: /*
+  filter: com.google.inject.servlet.GuiceFilter
+
+web_xml:
+  
+  <!--
+    Include the same prefix on all JSP pages 
+  -->
+  <jsp-config>
+    <jsp-property-group>
+      <page-encoding>utf-8</page-encoding>
+      <url-pattern>*.jsp</url-pattern>
+      <el-ignored>false</el-ignored>
+      <include-prelude>/WEB-INF/taglibs.jspf</include-prelude>
+      <deferred-syntax-allowed-as-literal>true</deferred-syntax-allowed-as-literal>
+      <trim-directive-whitespaces>true</trim-directive-whitespaces>
+    </jsp-property-group>
+  </jsp-config>

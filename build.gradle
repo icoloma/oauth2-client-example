@@ -1,0 +1,67 @@
+/*
+
+Para crear el entorno para el ide, elegir:
+
+  gradle idea
+  gradle eclipse
+
+*/
+apply from: "https://raw.github.com/icoloma/gradle-plugins/master/idea-gae.gradle"
+apply from: "https://raw.github.com/icoloma/gradle-plugins/master/eclipse-gae.gradle"
+
+project.group='com.koliseo'
+project.version=1.0
+
+repositories {
+  mavenCentral()
+  mavenRepo name:'sonatype-snapshots', url:'http://oss.sonatype.org/content/repositories/snapshots/'
+}
+
+configurations {
+    all*.exclude group: 'org.datanucleus'
+    all*.exclude group: 'org.codehaus.jettison'
+    all*.exclude module: 'geronimo-jpa_3.0_spec'
+    all*.exclude module: 'geronimo-jta_1.1_spec'
+}
+
+eclipse {
+  jdt {
+      file.withProperties { properties ->
+          properties['org.eclipse.jdt.core.compiler.problem.missingSerialVersion'] = 'ignore'
+      }
+  }
+}
+tasks.eclipse.doLast { 
+  ant.propertyfile(file: ".settings/com.google.appengine.eclipse.core.prefs") {
+    ant.entry(key: "gaeDatanucleusEnabled", value: "false")
+  }
+}
+
+dependencies {
+  compile "com.google.appengine:appengine-api-1.0-sdk:${appengineVersion}",
+          "com.google.guava:guava:10.0.1",
+          "com.google.inject:guice:3.0",
+          "com.google.inject.extensions:guice-servlet:3.0",
+          "com.sun.jersey.contribs:jersey-guice:${jerseyVersion}",
+          "com.sun.jersey.contribs:jersey-multipart:${jerseyVersion}",
+          "com.sun.jersey:jersey-core:${jerseyVersion}",
+          "com.sun.jersey:jersey-json:${jerseyVersion}",
+          "com.sun.jersey:jersey-servlet:${jerseyVersion}",
+          "com.sun.jersey:jersey-server:${jerseyVersion}",
+          // Better than 2.2.5, workaround for https://groups.google.com/group/google-appengine-java/browse_thread/thread/dc8ed0738064f486/4be34ebef5a91b08
+          "com.sun.xml.bind:jaxb-impl:2.1.12", 
+          "joda-time:joda-time:2.1",
+          "org.codehaus.jackson:jackson-core-asl:1.9.2",
+          "org.codehaus.jackson:jackson-mapper-asl:1.9.2",
+          "org.slf4j:slf4j-jdk14:1.6.4"
+
+  providedCompile "org.apache.geronimo.specs:geronimo-servlet_2.4_spec:1.1.1",
+            "org.apache.geronimo.specs:geronimo-jsp_2.1_spec:1.0.1"
+          
+  testCompile "com.google.appengine:appengine-api-stubs:${appengineVersion}",
+          "com.google.appengine:appengine-tools-sdk:${appengineVersion}",
+          "com.google.appengine:appengine-testing:${appengineVersion}",
+          "junit:junit:4.5"
+}
+ 
+

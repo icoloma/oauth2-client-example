@@ -1,0 +1,15 @@
+<!-- Generated from app.yaml. Do not edit. -->
+<web-app version='2.5' xmlns='http://java.sun.com/xml/ns/javaee' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd'>
+  <filter>
+    <filter-name>com.google.inject.servlet.GuiceFilter</filter-name>
+    <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>com.google.inject.servlet.GuiceFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <listener>
+    <listener-class>com.acme.config.GuiceConfigListener</listener-class>
+  </listener>
+<!-- Include the same prefix on all JSP pages --> <jsp-config> <jsp-property-group> <page-encoding>utf-8</page-encoding> <url-pattern>*.jsp</url-pattern> <el-ignored>false</el-ignored> <include-prelude>/WEB-INF/taglibs.jspf</include-prelude> <deferred-syntax-allowed-as-literal>true</deferred-syntax-allowed-as-literal> <trim-directive-whitespaces>true</trim-directive-whitespaces> </jsp-property-group> </jsp-config>
+</web-app>
