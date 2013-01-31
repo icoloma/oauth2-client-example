@@ -1,5 +1,6 @@
 package com.acme.config;
 
+import com.acme.resources.Events;
 import com.acme.resources.Root;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -63,7 +64,8 @@ public class MyServletModule extends ServletModule {
     // add here your resource classes
     private Set<Class> getResources() {
         return Sets.newHashSet(new Class[] {
-			Root.class
+			Root.class,
+            Events.class
 		});
 	}
 

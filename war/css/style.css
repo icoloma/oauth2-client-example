@@ -11,3 +11,15 @@ body {
 .alert p {
 	margin: 5px 0;
 }
+.thumbnail {
+    background-size: cover;
+    width: 200px;
+    height: 113px;
+    font-color: #fff;
+    text-align: center;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 113px;
+    color: white;
+    font-weight: bold;
+}

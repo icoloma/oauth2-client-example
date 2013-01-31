@@ -18,7 +18,7 @@ public class HTTPClient {
     private String mediaType;
 
     public String fetch(HTTPMethod method, String url) throws IOException {
-        HTTPRequest request = new HTTPRequest(new URL(url), method);
+        HTTPRequest request = new HTTPRequest(new URL(url), method, FetchOptions.Builder.withDeadline(20));
         request.setHeader(new HTTPHeader(HttpHeaders.ACCEPT, "application/json"));
         if (accessToken != null) {
             request.setHeader(new HTTPHeader(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken));
