@@ -16,7 +16,7 @@ static_files:
 
 system_properties:
   java.util.logging.config.file: WEB-INF/classes/logging.properties
-#  === Uncomment and replace with your own configuration: ===
+#  === Uncomment and replace with your own configuration, or use -Dname=value in your launcher: ===
 #  auth_hostname: https://www.koliseo.com
 #  auth_url: https://www.koliseo.com/login/auth
 #  auth_accesstoken_url: https://www.koliseo.com/login/auth/token

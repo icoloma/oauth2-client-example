@@ -5,7 +5,7 @@
       <div class="nav-collapse collapse">
         <ul class="nav">
           <li class="">
-            <a href="#todo">Go to the project page</a>
+            <a href="https://github.com/icoloma/oauth2-client-example">Go to the project page</a>
           </li>
         </ul>
       </div>

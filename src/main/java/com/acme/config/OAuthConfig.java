@@ -12,4 +12,5 @@ public interface OAuthConfig {
 
     String getScope();
 
+    String serializeAccessTokenArguments(String state, String authorizationCode);
 }
