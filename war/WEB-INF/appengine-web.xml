@@ -4,7 +4,7 @@
   <version>1-0</version>
   <static-files>
     <include path='/css/*.css' expiration='1d'/>
-    <include path='/img/*' expiration='1d'/>
+    <include path='/css/img/*' expiration='1d'/>
     <include path='/favicon.ico' expiration='1d'/>
     <include path='/robots.txt'/>
   </static-files>

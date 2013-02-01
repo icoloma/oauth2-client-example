@@ -5,7 +5,7 @@ package com.acme.config;
  */
 public class OAuthConfigImpl implements OAuthConfig {
 
-    public static String HOSTNAME = System.getProperty("auth_hostname", "https://www.koliseo.com");
+    public static String HOSTNAME = System.getProperty("auth_hostname", "https://sandbox.koliseo.com");
 
     private String authorizeUrl;
 

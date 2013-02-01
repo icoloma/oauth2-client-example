@@ -8,7 +8,7 @@ version: 1-0
 static_files:
 - include: /css/*.css
   expiration: 1d
-- include: /img/*
+- include: /css/img/*
   expiration: 1d
 - include: /favicon.ico
   expiration: 1d  

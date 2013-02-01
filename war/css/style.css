@@ -23,3 +23,6 @@ body {
     color: white;
     font-weight: bold;
 }
+.thumbnail:hover {
+    text-decoration: none;
+}
