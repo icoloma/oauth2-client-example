@@ -1,7 +1,7 @@
 #  AppEngine descriptor.  For documentation check 
 #  http://code.google.com/appengine/docs/java/configyaml/appconfig_yaml.html 
 
-application: koliseo-oauth2-client-example
+application: oauth2-client-example
 
 version: 1-0
 

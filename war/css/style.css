@@ -22,6 +22,8 @@ body {
     line-height: 113px;
     color: white;
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .thumbnail:hover {
     text-decoration: none;

@@ -7,11 +7,13 @@ import com.acme.model.UserData;
 import com.acme.util.HTTPClient;
 import com.google.appengine.api.urlfetch.HTTPMethod;
 import com.google.common.base.Preconditions;
+import com.sun.jersey.api.core.InjectParam;
 import com.sun.jersey.api.view.Viewable;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.CookieParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -50,11 +52,16 @@ public class Root {
     UserRepository repository;
 
 	@GET
-	public Response index(@CookieParam(USER_UUID) String currentUser) throws UnsupportedEncodingException {
+	public Response index(@CookieParam(USER_UUID) String currentUser, @InjectParam HttpServletRequest request) throws UnsupportedEncodingException {
         if (currentUser != null) {
             return Response.seeOther(UriBuilder.fromPath("/events").build()).build();
         } else {
-            String redirectUri = UriBuilder.fromPath("http://localhost:7777/callback").build().toString();
+            String redirectUri = UriBuilder.fromPath(
+                request.getScheme() + "://" +
+                request.getServerName() +
+                (request.getServerPort() == 80 || request.getServerPort() == 443? "" : ":" + request.getServerPort()) +
+                "/callback"
+            ).build().toString();
             UriBuilder authUri = UriBuilder.fromUri(config.getAuthorizeUrl())
                     .queryParam("response_type", "code")
                     .queryParam("state", "foobar")

@@ -1,0 +1,4 @@
+#!/bin/bash
+# Upload the application to AppEngine. 
+
+$APPENGINE_HOME/bin/appcfg.sh update war
