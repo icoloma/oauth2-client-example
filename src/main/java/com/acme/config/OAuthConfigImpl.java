@@ -5,7 +5,7 @@ package com.acme.config;
  */
 public class OAuthConfigImpl implements OAuthConfig {
 
-    public static String HOSTNAME = System.getProperty("auth_hostname", "https://sandbox.koliseo.com");
+    public static String HOSTNAME = System.getProperty("auth_hostname", "https://www.koliseo.com");
 
     private String authorizeUrl;
 
@@ -20,8 +20,8 @@ public class OAuthConfigImpl implements OAuthConfig {
     public OAuthConfigImpl() {
         authorizeUrl = System.getProperty("auth_url", HOSTNAME + "/login/auth");
         accessTokenUrl = System.getProperty("auth_accesstoken_url", HOSTNAME + "/login/auth/token");
-        clientId = System.getProperty("auth_client_id", "35");
-        clientSecret = System.getProperty("auth_client_secret", "c86c0a7ab13d8e2dd1ae9c538053b951");
+        clientId = System.getProperty("auth_client_id", "560004");
+        clientSecret = System.getProperty("auth_client_secret", "37acf2f1-5be1-4b7c-91dc-f736714e2795");
     }
 
     public String getAuthorizeUrl() {
