@@ -9,9 +9,6 @@
         <div class="span1">
             <img src="/css/img/no-ie.jpg">
         </div>
-        <div class="span11">
-            <p>Be aware: because we are using a cheap SSL certificate, <b>this will not work on Internet Explorer or older Android devices</b>. Other browsers should be fine.
-        </div>
     </div>
 
 </jsp:body>
