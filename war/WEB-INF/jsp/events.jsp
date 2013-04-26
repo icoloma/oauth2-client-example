@@ -17,11 +17,21 @@
         <input type="submit" class="btn btn-primary" value="Create event">
         <a href="/logout" class="btn">Log out</a>
     </form>
-    <p>
+
+    <ul class="unstyled">
     <c:forEach items="${it.data}" var="event">
-        <a href="https://www.koliseo.com/${event.uuid}" class="thumbnail" style="background-image:url(https://www.koliseo.com${event.bg.thumbnail})"> ${event.name}</a>
+      <li class="event row">
+        <div class="span2">
+          <a href="https://www.koliseo.com/${event.uuid}" class="thumbnail" style="background-image:url(${event.bg.thumbnail})">${event.name}</a>
+        </div>
+        <div class="span10 description">
+          <p>
+          <a href="https://www.koliseo.com/${event.uuid}">${event.name}</a>
+          <br><small>${event.description}</small>
+        </div>
+      </li>
     </c:forEach>
-    </p>
+    </ul>
 
 </jsp:body>
 

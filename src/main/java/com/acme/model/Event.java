@@ -9,6 +9,7 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 public class Event {
 
     private String name;
+    private String description;
     private String uuid;
     private Background bg;
 
@@ -34,6 +35,14 @@ public class Event {
 
     public void setBg(Background bg) {
         this.bg = bg;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -62,6 +71,10 @@ public class Event {
         }
 
         public void setThumbnail(String thumbnail) {
+            // workaround: there is a bug in koliseo where standard backgrounds do not include the http:// prefix
+            if (thumbnail.startsWith("/")) {
+                thumbnail = "https://www.koliseo.com" + thumbnail;
+            }
             this.thumbnail = thumbnail;
         }
     }
