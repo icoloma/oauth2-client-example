@@ -1,7 +1,7 @@
 oauth2-client-example
 ==================
 
-Example OAuth2 client application using Jersey, Guice and Scribe on Google AppEngine. This application logs into Koliseo to invoke a protected resource. It can be changed easily to log into any other authentication provider.
+Example OAuth2 client application using Jersey and Guice on Google AppEngine. This application logs into Koliseo to perform restricted actions as a user. It can be changed easily to log into any other authentication provider.
 
 To get started, download gradle >= 1.3 and execute <code>gradle eclipse</code> or <code>gradle idea</code> and import the resulting project into your IDE.
 
