@@ -11,7 +11,7 @@ public class Event {
     private String name;
     private String description;
     private String uuid;
-    private Background bg;
+    private Photo photo;
 
     public String getName() {
         return name;
@@ -29,12 +29,12 @@ public class Event {
         this.uuid = uuid;
     }
 
-    public Background getBg() {
-        return bg;
+    public Photo getPhoto() {
+        return photo;
     }
 
-    public void setBg(Background bg) {
-        this.bg = bg;
+    public void setPhoto(Photo photo) {
+        this.photo = photo;
     }
 
     public String getDescription() {
@@ -46,36 +46,19 @@ public class Event {
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public static class Background {
+    public static class Photo {
 
-        private String original;
-        private String thumbnail;
+        private String url;
 
-        public Background() {
+        public Photo() {
         }
 
-        public Background(String original) {
-            this.original = original;
+        public String getUrl() {
+            return url;
         }
 
-        public String getOriginal() {
-            return original;
-        }
-
-        public void setOriginal(String original) {
-            this.original = original;
-        }
-
-        public String getThumbnail() {
-            return thumbnail;
-        }
-
-        public void setThumbnail(String thumbnail) {
-            // workaround: there is a bug in koliseo where standard backgrounds do not include the http:// prefix
-            if (thumbnail.startsWith("/")) {
-                thumbnail = "https://www.koliseo.com" + thumbnail;
-            }
-            this.thumbnail = thumbnail;
+        public void setUrl(String url) {
+            this.url = url;
         }
     }
 }

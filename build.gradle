@@ -12,9 +12,12 @@ apply from: "https://raw.github.com/icoloma/gradle-plugins/master/eclipse-gae.gr
 project.group='com.koliseo'
 project.version=1.0
 
+sourceCompatibility=1.7
+targetCompatibility=1.7
+
 repositories {
   mavenCentral()
-  mavenRepo name:'sonatype-snapshots', url:'http://oss.sonatype.org/content/repositories/snapshots/'
+  //mavenRepo name:'sonatype-snapshots', url:'http://oss.sonatype.org/content/repositories/snapshots/'
 }
 
 configurations {

@@ -58,7 +58,6 @@ public class Events {
         UserData userData = repository.get(currentUserUuid);
         Event event = new Event();
         event.setName(name);
-        event.setBg(new Event.Background(bg));
         String s = new HTTPClient()
                 .withPayload(objectMapper.writeValueAsString(event))
                 .withMediaType(MediaType.APPLICATION_JSON)
