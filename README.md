@@ -9,6 +9,9 @@ The project compiles your classes directly on <code>war/WEB-INF/classes</code>, 
 
 A live demo is available [here](http://oauth2-client-example.appspot.com/)
 
+[![Analytics](https://ga-beacon.appspot.com/UA-3159223-5/icoloma/oauth2-client-example)](https://github.com/icoloma/oauth2-client-example)
+
+
 Customize this example
 ======================
 
